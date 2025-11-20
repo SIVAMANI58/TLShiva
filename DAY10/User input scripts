@@ -1,1 +1,11 @@
-
+read  name
+read  age
+if [[ -z "$name" && -z "$age" ]]; then 
+    echo " enter valid name and age"
+fi 
+if [[ ! "$name"  =~ ^[A-Za-z\s]+$ ]];then
+    echo "plz enter the valid name"
+fi
+if ! [[ "$age" -gt  0 && "$age" -lt 100 ]];then
+     echo "plz enter valid age "
+fi
