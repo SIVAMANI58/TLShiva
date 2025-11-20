@@ -1,1 +1,40 @@
+echo "DO you want to  create (1),delete(2),or move(3)file"
+read num
+case $num in
+1)echo  "enter the  file:"  
+   read file
+   if [ -f "$file" ];then
+       echo "file is eixts "$file""
+   else
+       echo "pls enter another file name"
+       touch "$file".txt
+       echo "file is created"
+   fi
+   ;;
 
+2) echo  "Enter file name to delete: "
+            read file
+
+            if [[ -f "$file" ]]; then
+                rm "$file"
+                echo "File deleted: $file"
+            else
+                echo "File not found: $file"
+            fi
+            ;;
+3)echo  "Enter file name to move: "
+            read file
+
+            echo -n "Enter destination directory: "
+            read dir
+
+            if [[ ! -f "$file" ]]; then
+                echo "File not found: $file"
+            elif [[ ! -d "$dir" ]]; then
+                echo "Directory not found: $dir"
+            else
+                mv "$file" "$dir"
+                echo "File moved to: $dir"
+            fi
+            ;; 
+esac
