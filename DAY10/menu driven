@@ -1,1 +1,7 @@
-
+read n
+case $n in
+  1) touch siva.txt;;
+  2) mkdir siva;;
+  3) ls;;
+  *) echo "invalid";;
+esac
