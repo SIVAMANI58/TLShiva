@@ -1,1 +1,48 @@
 
+# Placeholder functions
+# Task 1: IP Reachability Tester (replace with your actual function)
+def ip_reachability_tester():
+    ip = input("Enter an IP address to test: ")
+    print(f"[Simulated] Testing reachability for {ip}...")
+    print("Ping successful!\n")   # Replace with real logic
+
+# Task 2: Latency Summary Function (replace with real summary function)
+def latency_summary(latencies):
+    print("\nLatency Summary:")
+    print(f"Count: {len(latencies)}")
+    print(f"Min:   {min(latencies)} ms")
+    print(f"Max:   {max(latencies)} ms")
+    print(f"Avg:   {sum(latencies)/len(latencies):.2f} ms\n")
+# Task 3: Menu-Driven CLI Tool
+
+def main_menu():
+    while True:
+        print("=== Network Utility Menu ===")
+        print("1. IP Reachability Tester")
+        print("2. Latency Summary Tool")
+        print("3. Exit")
+        
+        choice = input("Enter your choice (1–3): ")
+
+        # Handle user selection using conditional logic
+        if choice == "1":
+            ip_reachability_tester()
+
+        elif choice == "2":
+            values = input("Enter comma-separated latency values (e.g., 10,20,30): ")
+            try:
+                latency_list = [float(v.strip()) for v in values.split(",")]
+                latency_summary(latency_list)
+            except ValueError:
+                print("Error: Please enter only numeric values.\n")
+
+        elif choice == "3":
+            print("Exiting program. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.\n")
+
+# Start the program
+if __name__ == "_main_":
+    main_menu()
